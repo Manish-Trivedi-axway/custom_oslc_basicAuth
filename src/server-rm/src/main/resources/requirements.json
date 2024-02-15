@@ -1,0 +1,156 @@
+[
+	{
+		"requirement": {
+			"id": "1",
+			"title": "AWS",
+			"description": " Azure web services"
+		}
+	},
+	{
+		"requirement": {
+			"id": "2",
+			"title": "GCP",
+			"description": " Google Cloud Platform"
+		}
+	},
+	{
+		"requirement": {
+			"id": "3",
+			"title": "Azure",
+			"description": " Azure Cloud Services"
+		}
+	},
+	{
+		"requirement": {
+			"id": "4",
+			"title": "Cloudera",
+			"description": " Hadoop service"
+		}
+	},
+	{
+		"requirement": {
+			"id": "5",
+			"title": "Spark",
+			"description": " Apache Spark for processing"
+		}
+	},
+	{
+		"requirement": {
+			"id": "6",
+			"title": "Kafka",
+			"description": " Apache Kafka for middleware"
+		}
+	},
+	{
+		"requirement": {
+			"id": "7",
+			"title": "Tomcat",
+			"description": " Apache tomcat java server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "8",
+			"title": "Jboss",
+			"description": " Jboss web server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "9",
+			"title": "Websphere",
+			"description": " Websphere IBM server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "10",
+			"title": "Weblogic",
+			"description": " Application server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "11",
+			"title": "Oracle",
+			"description": " Oracle database server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "12",
+			"title": "AWS",
+			"description": " Azure web services"
+		}
+	},
+	{
+		"requirement": {
+			"id": "13",
+			"title": "GCP",
+			"description": " Google Cloud Platform"
+		}
+	},
+	{
+		"requirement": {
+			"id": "14",
+			"title": "Azure",
+			"description": " Azure Cloud Services"
+		}
+	},
+	{
+		"requirement": {
+			"id": "15",
+			"title": "Cloudera",
+			"description": " Hadoop service"
+		}
+	},
+	{
+		"requirement": {
+			"id": "16",
+			"title": "Spark",
+			"description": " Apache Spark for processing"
+		}
+	},
+	{
+		"requirement": {
+			"id": "17",
+			"title": "Kafka",
+			"description": " Apache Kafka for middleware"
+		}
+	},
+	{
+		"requirement": {
+			"id": "18",
+			"title": "Tomcat",
+			"description": " Apache tomcat java server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "19",
+			"title": "Jboss",
+			"description": " Jboss web server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "20",
+			"title": "Websphere",
+			"description": " Websphere IBM server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "21",
+			"title": "Weblogic",
+			"description": " Application server"
+		}
+	},
+	{
+		"requirement": {
+			"id": "22",
+			"title": "Oracle",
+			"description": " Oracle database server"
+		}
+	}
+]
