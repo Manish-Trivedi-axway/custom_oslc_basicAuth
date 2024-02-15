@@ -1,0 +1,34 @@
+ {
+                "AuthenticationScheme" : "BASIC",
+                "RootCatalogURI" : "http://localhost:8800/services/catalog/singleton",
+                "ServerID" : "MagicDraw",
+                "ServerType" : "OSLC",
+                "Domains" : {
+                    "Name" : "Requirements Management",
+                    "Url" : "http://open-services.net/ns/rm#",
+                    "LinkTypes" : [
+                        {
+                            "text" : "Constrained By"
+                        },
+                        {
+                            "text" : "Constrain"
+                        }
+                    ]
+                },
+                "Parameters" : [
+                    {
+                        "resourceType" : "http://open-services.net/ns/rm#Requirement",
+                        "selectAttributes" : "dcterms:title,dcterms:identifier,dcterms:description",
+                        "whereAttributes" : "dcterms:title,dcterms:identifier,dcterms:description"
+                    },
+                    {
+                        "resourceType" : "http://open-services.net/ns/rm#RequirementsCollection",
+                        "selectAttributes" : "dcterms:title,dcterms:identifier,dcterms:description",
+                        "whereAttributes" : "dcterms:title,dcterms:identifier,dcterms:description"
+                    }
+                ],
+                "ServerAdmin" : {
+                    "userName" : "DPTUser",
+                    "userPassword" : "CB-ENCRYPTED-B7-EA-BB-98-C3-7C-AF-D4-5C-BE-5-D2-60-E3-20-42"
+                }
+            }
