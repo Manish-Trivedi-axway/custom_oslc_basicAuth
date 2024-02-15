@@ -23,7 +23,7 @@
         <jersey.version>2.35</jersey.version>
         <swagger.version>2.2.7</swagger.version>
         <swagger-ui.version>3.52.5</swagger-ui.version>
-        <servlet.port>8083</servlet.port>
+        <servlet.port>8800</servlet.port>
         <application.contextpath>/</application.contextpath>
         <application.filename>server-rm</application.filename>
         <!-- Start of user code properties

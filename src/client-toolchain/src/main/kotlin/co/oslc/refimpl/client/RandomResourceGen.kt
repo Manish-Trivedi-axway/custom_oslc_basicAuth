@@ -60,7 +60,7 @@ fun genRequirement(sp: ServiceProvider, id: Int, max:Int): Requirement {
 
 fun randomRequirementLink(maxId: Int, exceptId: Int): Set<Link> {
     val id = randomIdExcept(maxId, exceptId)
-    val to = "http://codebeamer.arorian.com:8083/services/Requirement/sp_single/req_$id"
+    val to = "http://localhost:8800/services/Requirement/sp_single/req_$id"
     return singleLinkTo(to)
 }
 

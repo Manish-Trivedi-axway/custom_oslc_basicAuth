@@ -40,7 +40,7 @@ public class RequirementsIT {
         Response response = givenOslcRequest()
                 .auth().basic("DPTuser", "DPTAdmin")
             .when()
-                .get("http://codebeamer.arorian.com:8083/services/serviceProviders/sp_single");
+                .get("http://localhost:8800/services/serviceProviders/sp_single");
 
         response.then()
             .assertThat()
