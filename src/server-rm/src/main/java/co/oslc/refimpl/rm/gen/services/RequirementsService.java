@@ -95,7 +95,6 @@ public class RequirementsService {
 	private RestDelegate delegate;
 
 	private static final Logger log = LoggerFactory.getLogger(RequirementsService.class);
-	
 
 	// Start of user code class_attributes
 	// End of user code
@@ -318,21 +317,11 @@ public class RequirementsService {
 							@Content(mediaType = OslcMediaType.TEXT_TURTLE) }) })
 	public Response createRequirement(@PathParam("serviceProviderId") final String serviceProviderId,
 			final Requirement aResource) throws IOException, ServletException {
-		RequirementCreatorHelper helper = new RequirementCreatorHelper();
-		List<Requirement> jsonRequirements  = helper.jsonRequirement();
-		Requirement newResource = null;
-		for(Requirement req : jsonRequirements) {
-			newResource =  delegate.createRequirement(httpServletRequest, req, "sp_single");
-			httpServletResponse.setHeader("ETag", delegate.getETagFromRequirement(newResource));
-		}
-		
-		//Requirement newResource = delegate.createRequirement(httpServletRequest, aResource, serviceProviderId);
-		//httpServletResponse.setHeader("ETag", delegate.getETagFromRequirement(newResource));
+		Requirement newResource = delegate.createRequirement(httpServletRequest, aResource, serviceProviderId);
+		httpServletResponse.setHeader("ETag", delegate.getETagFromRequirement(newResource));
 		return Response.created(newResource.getAbout()).entity(newResource)
 				.header(ServerConstants.HDR_OSLC_VERSION, ServerConstants.OSLC_VERSION_V2).build();
 	}
-
-	
 
 	/**
 	 * OSLC delegated creation dialog for a single resource

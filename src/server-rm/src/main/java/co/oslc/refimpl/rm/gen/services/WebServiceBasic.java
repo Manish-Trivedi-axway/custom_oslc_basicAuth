@@ -117,6 +117,17 @@ public class WebServiceBasic
         super();
     }
 
+    @GET
+	@Path("loaddata")
+	@Consumes({ MediaType.WILDCARD })
+	public Response loadData() {
+		RequirementCreatorHelper helper = new RequirementCreatorHelper();
+		List<Requirement> jsonRequirements = helper.jsonRequirement();
+		for (Requirement req : jsonRequirements) {
+			delegate.createRequirement(httpServletRequest, req, "sp_single");
+		}
+		return Response.ok().build();
+	}
     private void addCORSHeaders (final HttpServletResponse httpServletResponse) {
         //UI preview can be blocked by CORS policy.
         //add select CORS headers to every response that is embedded in an iframe.
