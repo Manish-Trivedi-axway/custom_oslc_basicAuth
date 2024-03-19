@@ -22,10 +22,16 @@
 
 package co.oslc.refimpl.rm.gen.services;
 
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -99,7 +105,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 @Path("")
 public class WebServiceBasic
 {
-    @Context private HttpServletRequest httpServletRequest;
+	@Context
+	private HttpServletRequest httpServletRequest;
     @Context private HttpServletResponse httpServletResponse;
     @Context private UriInfo uriInfo;
     @Inject  private RestDelegate delegate;
@@ -126,6 +133,68 @@ public class WebServiceBasic
 		for (Requirement req : jsonRequirements) {
 			delegate.createRequirement(httpServletRequest, req, "sp_single");
 		}
+		return Response.ok().build();
+	}
+    
+    
+    @GET
+	@Path("loadDbData")
+	@Consumes({ MediaType.WILDCARD })
+	public Response loadDbData() throws ClassNotFoundException {
+    	String url = "jdbc:mariadb://smartautomationserver.mariadb.database.azure.com:3306/smartdashboardautomationdb?useSSL=true";
+        String user = "smartadmin@smartautomationserver";
+        String password = "India@123";
+        Class.forName("org.mariadb.jdbc.Driver"); 
+        String sql = "SELECT * FROM datafrommd";
+        try (Connection con = DriverManager.getConnection(url, user, password)) {
+        	 PreparedStatement pst = con.prepareStatement(sql);
+        	 ResultSet rs =  pst.executeQuery();
+        	 RequirementCreatorHelper helper = new RequirementCreatorHelper();
+        	 while (rs.next()) {
+        	 int id = rs.getInt("iddatafrommd");
+             String name = rs.getString("name");
+             String description = rs.getString("description");
+             Requirement req =  helper.createRequirement(""+id, name, description);
+             delegate.createRequirement(httpServletRequest, req, "sp_single");
+        	 }
+        	 
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+		return Response.ok().build();
+	}
+    
+    @POST
+	@Path("postdata")
+	@Consumes({ MediaType.TEXT_PLAIN })
+	public Response postData(String data) throws ClassNotFoundException {
+    	 String url = "jdbc:mariadb://smartautomationserver.mariadb.database.azure.com:3306/smartdashboardautomationdb?useSSL=true";
+         String user = "smartadmin@smartautomationserver";
+         String password = "India@123";
+         RequirementCreatorHelper helper = new RequirementCreatorHelper();
+         List<Requirement> jsonRequirements = helper.jsonRequirement();
+         Class.forName("org.mariadb.jdbc.Driver"); 
+         String sql = "INSERT INTO datafrommd ( name, description) VALUES (?, ?)";
+         try (Connection con = DriverManager.getConnection(url, user, password)) {
+        	 for (Requirement req : jsonRequirements) {
+             try (PreparedStatement pst = con.prepareStatement(sql)) {
+                // pst.setString(1, req.getIdentifier().replaceAll("[^0-9]", " ") );
+                 pst.setString(1, req.getTitle());
+                 pst.setString(2, req.getDescription());
+                 int rowsInserted = pst.executeUpdate();
+                 if (rowsInserted > 0) {
+                     log.info("A new row was inserted successfully!");
+                 }
+             }
+        	 }
+            
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+         
+    	
 		return Response.ok().build();
 	}
     private void addCORSHeaders (final HttpServletResponse httpServletResponse) {

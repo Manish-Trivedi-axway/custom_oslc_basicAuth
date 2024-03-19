@@ -16,6 +16,18 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class RequirementCreatorHelper {
+	
+	public List<Requirement>  parseReqJson(String jsonString) {
+		JSONParser parser = new JSONParser();
+		List<Requirement> requirementList = new ArrayList<>();
+		try {
+			JSONArray reqList = (JSONArray) parser.parse(jsonString);
+			reqList.forEach(req -> requirementList.add(parseRequirementObject((JSONObject) req)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        return requirementList;
+	}
 
 	public List<Requirement> jsonRequirement() {
 		List<Requirement> requirementList = new ArrayList<>();
@@ -41,6 +53,10 @@ public class RequirementCreatorHelper {
 		String title = (String) reqObject.get("title");
 		String description = (String) reqObject.get("description");
 
+		return createRequirement(id, title, description);
+	}
+
+	public Requirement createRequirement(String id, String title, String description) {
 		Requirement r = new Requirement();
 		r.setIdentifier("req_" + id);
 		r.setTitle(title);
