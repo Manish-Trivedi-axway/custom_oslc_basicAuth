@@ -40,7 +40,7 @@ public class RequirementsIT {
         Response response = givenOslcRequest()
                 .auth().basic("DPTuser", "DPTAdmin")
             .when()
-                .get("http://localhost:8800/services/serviceProviders/sp_single");
+                .get("http://10.224.180.22:8800/services/serviceProviders/sp_single");
 
         response.then()
             .assertThat()

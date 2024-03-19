@@ -7,7 +7,7 @@
     <context-param>
         <description>Base URI for the adaptor.</description>
         <param-name>co.oslc.refimpl.rm.gen.servlet.baseurl</param-name>
-        <param-value>http://localhost:8800/</param-value>
+        <param-value>http://10.224.180.22:8800/</param-value>
         <!-- Start of user code webxml_baseurl
         -->
         <!-- TODO: Add additional configurations here to avoid them be overrriden upon future re-generation -->

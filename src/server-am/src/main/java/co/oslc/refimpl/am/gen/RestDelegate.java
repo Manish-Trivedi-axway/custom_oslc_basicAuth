@@ -132,6 +132,7 @@ public class RestDelegate {
         URI uri = resourcesFactory.constructURIForResource(id);
         aResource.setAbout(uri);
         aResource.setCreated(new Date());
+        aResource.setDescription("Description for id"+id);
         resourceRepository.addResource(SP_DEFAULT, id, aResource);
         newResource = aResource;
         // End of user code

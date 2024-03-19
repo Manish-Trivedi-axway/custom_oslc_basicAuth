@@ -120,7 +120,7 @@ public class AuthenticationApplication implements Application {
         // Start of user code login
         //TODO: replace with code with real logic to login. You should also decide whether the login is admin or not.
         //log.warn("CAUTION! You are using fake login checks, which ought to be changed!");
-        if ((username.equals("DPTUser") && password.equals("DPTAdmin"))) {
+        if ((username.equals("DPTuser") && password.equals("DPTAdmin"))) {
             bindApplicationConnectorToSession(request, username);
         }
         else {

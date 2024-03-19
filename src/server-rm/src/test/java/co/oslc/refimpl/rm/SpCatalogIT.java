@@ -21,7 +21,7 @@ import java.io.InputStream;
 
 public class SpCatalogIT {
 
-    private static final String URI_SPC = "http://localhost:8800/services/catalog/singleton";
+    private static final String URI_SPC = "http://10.224.180.22:8800/services/catalog/singleton";
 
     @Test
     public void testAuthChallenge() {
@@ -77,7 +77,7 @@ public class SpCatalogIT {
                 .declareNamespace("oslc_rm", "http://open-services.net/xmlns/rm/1.0/")
             ))
         .when()
-            .get("http://localhost:8800/services/rootservices")
+            .get("http://10.224.180.22:8800/services/rootservices")
         .then()
             .statusCode(200)
             .contentType("application/rdf+xml")
