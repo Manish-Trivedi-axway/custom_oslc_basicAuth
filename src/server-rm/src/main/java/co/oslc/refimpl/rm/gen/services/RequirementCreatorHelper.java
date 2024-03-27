@@ -70,7 +70,7 @@ public class RequirementCreatorHelper {
 
 	private Set<Link> randomRequirementLink(int maxId, int exceptId) {
 		Set<Link> retValueSet = new HashSet<>();
-		String to = "http://10.224.180.22:8800/services/Requirement/sp_single/req_" + exceptId;
+		String to = "http://10.224.180.29:8800/services/Requirement/sp_single/req_" + exceptId;
 		retValueSet.add(new Link(URI.create(to)));
 		return retValueSet;
 	}
